@@ -1,6 +1,6 @@
 {
   "name": "flatspace",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "description": "Flat-file CMS + static site builder — YAML content, Node or Bun",
   "license": "MIT",
   "type": "module",

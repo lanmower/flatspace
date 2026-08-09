@@ -11,7 +11,12 @@ import { cp, mkdir } from 'fs/promises'
 import { existsSync } from 'fs'
 import path from 'path'
 
-const BASE = '/flatspace'
+// Absolute-URL prefix for the deployed site (e.g. GitHub Pages project sites
+// live at /<repo-name>/, not /). Every consumer besides this repo's own demo
+// deploy needs a different value, so it is configurable via env var rather
+// than hardcoded — set FLATSPACE_BASE in the build environment (CI or shell)
+// to the deployment's actual path prefix, empty string for a root deploy.
+const BASE = process.env.FLATSPACE_BASE ?? '/flatspace'
 const DOCS = path.resolve('docs')
 const DEMO_USER = { email: 'demo@flatspace.dev', name: 'Demo' }
 const ADMIN_COLLECTIONS = ['posts', 'pages', 'media', 'categories', 'forms', 'redirects']

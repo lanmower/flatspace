@@ -53,7 +53,13 @@ function patchAdminHtml(html, cssDepth) {
     })
     .replace('href="/app.css"', `href="${cssPrefix}app.css"`)
     .replace('href="/admin-brand.css"', `href="${cssPrefix}admin-brand.css"`)
-    .replace(/<script[^>]*src="\/admin\/client\.js"[^>]*><\/script>/, '')
+    // The static export is read-only (see the banner above), so every
+    // interactive-editing admin script is dead weight -- not just client.js.
+    // Leaving richtext/search/drawer/preview in with their absolute /admin/*
+    // src meant they 404'd on every non-root deploy (confirmed live) for no
+    // benefit, since none of them can do anything useful without the real
+    // server behind them.
+    .replace(/<script[^>]*src="\/admin\/(client|richtext|search|drawer|preview)\.js"[^>]*><\/script>/g, '')
     .replace(/\s+onclick="[^"]*"/g, '')
     .replace(/<a\s[^>]*href="[^"]*\/(create|edit|logout)[^"]*"[^>]*>[^<]*<\/a>/g, '')
     .replace(/href="\/admin\/collections\/([^"]+)"/g, (m, slug) => `href="${BASE}/admin/collections/${slug}/"`)

@@ -1,8 +1,17 @@
-import { readFileSync, writeFileSync } from 'node:fs'
+import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
 
 const here = dirname(fileURLToPath(import.meta.url))
+// Reads are always import.meta.url-relative (the source files live inside
+// this package regardless of who installed it), but the write target is the
+// consumer's own public/ dir -- process.cwd() when flatspace is a dependency,
+// this repo's own root when run from here directly. Writing here.."/'../..'
+// unconditionally landed the output inside flatspace's own node_modules copy
+// for any real consumer, which is why admin-brand.css 404'd on every
+// deployment that wasn't this repo's own demo build.
+const outDir = join(process.cwd(), 'public')
+mkdirSync(outDir, { recursive: true })
 const tokens = readFileSync(join(here, 'brand-tokens.css'), 'utf8')
 const shell = readFileSync(join(here, 'brand-shell.css'), 'utf8')
 
@@ -21,5 +30,5 @@ const additions = `
 `
 
 const out = `/* 247420 brand bible — admin identity layer */\n` + tokens + '\n' + shell + '\n' + additions
-writeFileSync(join(here, '..', '..', 'public', 'admin-brand.css'), out)
+writeFileSync(join(outDir, 'admin-brand.css'), out)
 console.log('wrote public/admin-brand.css', out.length, 'bytes')

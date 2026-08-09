@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 @config '../../tailwind.config.mjs';
-@import '../../node_modules/rippleui/dist/css/components.css';
+@import 'rippleui/dist/css/components.css';
 
 @custom-variant dark (&:is([data-theme='dark'] *));
 

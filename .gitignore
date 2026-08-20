@@ -1,5 +1,6 @@
 node_modules/
 public/media/cache/
+.env
 *.db
 *.db-shm
 *.db-wal

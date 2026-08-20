@@ -27,6 +27,8 @@ server.log
 .gm/prd.paused.yml
 .gm/exec-spool/
 .gm/last-dispatch-ts
+.gm/config-source-cache-default
+.gm/config-source-cache-default.*.sync.json
 # tracked: .gm/rs-learn.db, .gm/code-search/, AGENTS.md, .gm/prd.yml
 # <<< gm managed
 .plugkit-browser-profile-*/

@@ -1,6 +1,5 @@
 node_modules/
 public/media/cache/
-.env
 *.db
 *.db-shm
 *.db-wal
@@ -41,3 +40,4 @@ server.log
 .plugkit-browser-profile-*/
 .plugkit-agent-worktree/
 .code-search/
+config.bat

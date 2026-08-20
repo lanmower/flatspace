@@ -34,4 +34,3 @@ server.log
 .plugkit-browser-profile-*/
 .plugkit-agent-worktree/
 .code-search/
-config.bat

@@ -34,6 +34,7 @@ server.log
 .gm/last-instruction-ts
 .gm/last-prompt.txt
 .gm/long-gap-retry-state
+.gm/residual-check-fired
 .agentplug-kv/
 # tracked: .gm/rs-learn.db, .gm/code-search/, AGENTS.md, .gm/prd.yml, .gm/next-step.md
 # <<< gm managed

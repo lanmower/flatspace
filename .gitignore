@@ -26,10 +26,16 @@ server.log
 .gm/no-memorize-this-turn
 .gm/prd.paused.yml
 .gm/exec-spool/
-.gm/last-dispatch-ts
-.gm/config-source-cache-default
+.gm/config-source-cache-default/
 .gm/config-source-cache-default.*.sync.json
-# tracked: .gm/rs-learn.db, .gm/code-search/, AGENTS.md, .gm/prd.yml
+.gm/gm.db
+.gm/.embed-generation.rssearch_vectors
+.gm/last-dispatch-ts
+.gm/last-instruction-ts
+.gm/last-prompt.txt
+.gm/long-gap-retry-state
+.agentplug-kv/
+# tracked: .gm/rs-learn.db, .gm/code-search/, AGENTS.md, .gm/prd.yml, .gm/next-step.md
 # <<< gm managed
 .plugkit-browser-profile-*/
 .plugkit-agent-worktree/

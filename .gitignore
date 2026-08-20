@@ -25,6 +25,8 @@ server.log
 .gm/turn-state.json
 .gm/no-memorize-this-turn
 .gm/prd.paused.yml
+.gm/exec-spool/
+.gm/last-dispatch-ts
 # tracked: .gm/rs-learn.db, .gm/code-search/, AGENTS.md, .gm/prd.yml
 # <<< gm managed
 .plugkit-browser-profile-*/
